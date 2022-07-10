@@ -20,7 +20,11 @@ public class Setup {
         switch (browser) {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("['start-maximized']");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--headless"); //!!!should be enabled for Jenkins
+                chromeOptions.addArguments("--disable-dev-shm-usage"); //!!!should be enabled for Jenkins
+                chromeOptions.addArguments("--window-size=1920x1080"); //!!!should be enabled for Jenkins
+
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
